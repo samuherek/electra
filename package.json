@@ -17,8 +17,8 @@
     "start": "npm run build && electron ./dist/main.js"
   },
   "devDependencies": {
-    "electron": "^4.0.1",
-    "tslint": "^5.12.1",
-    "typescript": "^3.2.2"
+    "electron": "4.0.1",
+    "tslint": "5.12.1",
+    "typescript": "3.2.2"
   }
 }
