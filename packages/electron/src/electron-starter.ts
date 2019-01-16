@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from 'electron';
-import * as path from 'path';
+// import * as path from 'path';
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -11,7 +11,9 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, '../index.html'));
+  mainWindow.loadURL('http://localhost:3000');
+  // // and load the index.html of the app.
+  // mainWindow.loadFile(path.join(__dirname, '../index.html'));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
