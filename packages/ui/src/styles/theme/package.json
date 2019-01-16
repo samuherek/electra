@@ -1,0 +1,10 @@
+{
+  "name": "@bit/samuherek.ui.styles.theme",
+  "version": "0.0.1",
+  "homepage": "https://bitsrc.io/samuherek/ui/styles/theme",
+  "main": "dist/theme.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "license": "SEE LICENSE IN LICENSE"
+}

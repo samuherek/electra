@@ -1,0 +1,13 @@
+{
+  "name": "@bit/samuherek.ui.components.button-base",
+  "version": "0.0.1",
+  "homepage": "https://bitsrc.io/samuherek/ui/components/button-base",
+  "main": "dist/components/ButtonBase/index.js",
+  "dependencies": {
+    "react": "16.7.0",
+    "@bit/samuherek.ui.styles.styled-components": "file:../../styles/styled-components"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "license": "SEE LICENSE IN LICENSE"
+}

@@ -29,5 +29,12 @@
     "packages": [
       "packages/*"
     ]
+  },
+  "dependencies": {
+    "@bit/samuherek.ui.components.button": "file:./packages/ui/src/components/button",
+    "@bit/samuherek.ui.styles.global": "file:./packages/ui/src/styles/global",
+    "@bit/samuherek.ui.styles.theme": "file:./packages/ui/src/styles/theme",
+    "@bit/samuherek.ui.styles.styled-components": "file:./packages/ui/src/styles/styled-components",
+    "@bit/samuherek.ui.components.button-base": "file:./packages/ui/src/components/button-base"
   }
 }

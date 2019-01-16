@@ -1,6 +1,14 @@
 {
-  "env": {},
-  "dependencies": {},
-  "componentsDefaultDirectory": "components/{namespace}/{name}",
-  "packageManager": "npm"
+  "env": {
+    "compiler": "bit.envs/compilers/react-typescript@0.0.5"
+  },
+  "dependencies": {
+    "samuherek.ui/components/button": "0.0.1",
+    "samuherek.ui/styles/global": "0.0.1",
+    "samuherek.ui/styles/theme": "0.0.1",
+    "samuherek.ui/styles/styled-components": "0.0.1",
+    "samuherek.ui/components/button-base": "0.0.1"
+  },
+  "componentsDefaultDirectory": "packages/ui/src/{namespace}/{name}",
+  "packageManager": "yarn"
 }
