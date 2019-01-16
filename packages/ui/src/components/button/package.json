@@ -4,7 +4,7 @@
   "homepage": "https://bitsrc.io/samuherek/ui/components/button",
   "main": "dist/components/Button/index.js",
   "dependencies": {
-    "polished": "2.3.1",
+    "polished": "2.3.3",
     "react": "16.7.0",
     "@bit/samuherek.ui.components.button-base": "file:../button-base",
     "@bit/samuherek.ui.styles.styled-components": "file:../../styles/styled-components"

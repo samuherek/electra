@@ -16,7 +16,7 @@
   dependencies:
     "@babel/types" "^7.0.0"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.2.0.tgz#b03e42eeddf5898e00646e4c840fa07ba8dcad7f"
   integrity sha512-oouEibCbHMVdZSDlJBO6bZmID/zA/G/Qx3H1d3rSNPTD+L8UNKvCat7aKWSJ74zYbm5zWGh0GQN0hKj8zYFTCg==
@@ -32,34 +32,26 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@bit/samuherek.ui.components.button-base@0.0.1":
+"@bit/samuherek.ui.components.button-base@file:../button-base":
   version "0.0.1"
-  resolved "https://node.bitsrc.io/samuherek.ui.components.button-base/-/samuherek.ui.components.button-base-0.0.1.tgz#a3de6141050b1dd9efbcc0eb3efc7590680f6418"
-  integrity sha1-o95hQQULHdnvvMDrPvx1kGgPZBg=
   dependencies:
-    "@bit/samuherek.ui.styles.styled-components" "0.0.1"
+    "@bit/samuherek.ui.styles.styled-components" "file:../../styles/styled-components"
     react "16.7.0"
 
-"@bit/samuherek.ui.styles.global@0.0.1":
+"@bit/samuherek.ui.styles.global@file:../../styles/global":
   version "0.0.1"
-  resolved "https://node.bitsrc.io/samuherek.ui.styles.global/-/samuherek.ui.styles.global-0.0.1.tgz#e88b27554f97d62f5a6a2c53475f4a7c068f7d26"
-  integrity sha1-6IsnVU+X1i9aaixTR19KfAaPfSY=
   dependencies:
     styled-components "4.1.3"
 
-"@bit/samuherek.ui.styles.styled-components@0.0.1":
+"@bit/samuherek.ui.styles.styled-components@file:../../styles/styled-components":
   version "0.0.1"
-  resolved "https://node.bitsrc.io/samuherek.ui.styles.styled-components/-/samuherek.ui.styles.styled-components-0.0.1.tgz#a309e1c61f687befd71346359eef80fbe62c8874"
-  integrity sha1-ownhxh9oe+/XE0Y1nu+A++YsiHQ=
   dependencies:
-    "@bit/samuherek.ui.styles.global" "0.0.1"
-    "@bit/samuherek.ui.styles.theme" "0.0.1"
+    "@bit/samuherek.ui.styles.global" "file:../../styles/global"
+    "@bit/samuherek.ui.styles.theme" "file:../../styles/theme"
     styled-components "4.1.3"
 
-"@bit/samuherek.ui.styles.theme@0.0.1":
+"@bit/samuherek.ui.styles.theme@file:../../styles/theme":
   version "0.0.1"
-  resolved "https://node.bitsrc.io/samuherek.ui.styles.theme/-/samuherek.ui.styles.theme-0.0.1.tgz#12241e37056998e64ff0610b3ec93cbea9b87845"
-  integrity sha1-EiQeNwVpmOZP8GELPsk8vqm4eEU=
 
 "@emotion/is-prop-valid@^0.7.3":
   version "0.7.3"
@@ -202,12 +194,12 @@ object-assign@^4.1.0, object-assign@^4.1.1:
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
 
-polished@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/polished/-/polished-2.3.1.tgz#557ea07e5bcb1b9c7d71935a01d0315831234d48"
-  integrity sha512-0mGyvVrHVRN92wfohriBWmMF4JLEnGgpZbpwPrNDhpB8NrX6lYI8GGWXEfrmrF+ZXg52Jkwd+D0rxViOvXM9RQ==
+polished@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-2.3.3.tgz#bdbaba962ba8271b0e11aa287f2befd4c87be99a"
+  integrity sha512-59V4fDbdxtH4I1m9TWxFsoGJbC8nnOpUYo5uFmvMfKp9Qh+6suo4VMUle1TGIIUZIGxfkW+Rs485zPk0wcwR2Q==
   dependencies:
-    "@babel/runtime" "^7.0.0"
+    "@babel/runtime" "^7.2.0"
 
 postcss-value-parser@^3.3.0:
   version "3.3.1"
