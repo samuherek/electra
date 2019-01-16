@@ -19,6 +19,8 @@
     "no-var-requires": false,
     "jsx-boolean-value": false,
     "no-empty": false,
-    "member-access": false
+    "member-access": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   }
 }
