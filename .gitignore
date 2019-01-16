@@ -1,2 +1,11 @@
-node_modules
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
 dist
+.docz
+dump.rdb
+.env
+notes.md
+packages/server/.env
