@@ -11,11 +11,11 @@
     "start": "nodemon --watch ./build/**/* --exec 'electron ./build/index.js'"
   },
   "devDependencies": {
-    "@types/node": "^10.12.18",
-    "electron": "^4.0.1",
-    "nodemon": "^1.18.9",
-    "ts-node": "^8.0.1",
-    "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "^3.2.4"
+    "@types/node": "10.12.18",
+    "electron": "4.0.1",
+    "nodemon": "1.18.9",
+    "ts-node": "8.0.1",
+    "ts-node-dev": "1.0.0-pre.32",
+    "typescript": "3.2.4"
   }
 }
