@@ -1,8 +1,10 @@
 import { app, BrowserWindow } from 'electron';
 
+import db from './db';
+
 let win: BrowserWindow | null;
 
-function createWindow() {
+async function createWindow() {
   win = new BrowserWindow({
     height: 600,
     transparent: false,
@@ -17,6 +19,21 @@ function createWindow() {
   win.loadURL('http://localhost:3000'); // <--- (3) Loading react
 
   win.webContents.openDevTools();
+
+  const createTag = async (label: string) => {
+    const tag = await db.tags.insert({ label });
+    return tag;
+  };
+
+  const getTags = async () => {
+    const proxies = await db.tags.find({});
+    return { proxies };
+  };
+
+  // await createTag('something');
+
+  // const res = await getTags();
+  // console.log(res);
 
   win.on('closed', () => {
     win = null;

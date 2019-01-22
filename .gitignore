@@ -6,6 +6,8 @@ temp/
 dist
 .docz
 dump.rdb
-.env
+**/.env
 notes.md
-packages/server/.env
+
+# Electra Project specific
+packages/main/data

@@ -1,21 +1,28 @@
 {
   "name": "@electra/main",
   "version": "0.1.0",
+  "types": ".d.ts",
   "private": true,
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "electron": "electron ./build/index.js",
-    "start": "nodemon --watch ./build/**/* --exec 'electron ./build/index.js'"
+    "build": "NODE_ENV=production electron-builder",
+    "electron": "NODE_ENV=development electron ./build/index.js",
+    "start": "nodemon --watch ./build/**/* --exec 'yarn electron'"
   },
   "devDependencies": {
+    "@types/nedb": "^1.8.7",
     "@types/node": "10.12.18",
     "electron": "4.0.1",
     "nodemon": "1.18.9",
     "ts-node": "8.0.1",
     "ts-node-dev": "1.0.0-pre.32",
     "typescript": "3.2.4"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0",
+    "nedb-promises": "^3.0.2"
   }
 }
