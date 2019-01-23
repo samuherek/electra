@@ -13,7 +13,7 @@
     "start": "nodemon --watch ./build/**/* --exec 'yarn electron'"
   },
   "devDependencies": {
-    "@types/nedb": "^1.8.7",
+    "@types/nedb": "1.8.7",
     "@types/node": "10.12.18",
     "electron": "4.0.1",
     "nodemon": "1.18.9",
@@ -22,7 +22,7 @@
     "typescript": "3.2.4"
   },
   "dependencies": {
-    "nedb": "^1.8.0",
-    "nedb-promises": "^3.0.2"
+    "nedb": "1.8.0",
+    "nedb-promises": "3.0.2"
   }
 }
