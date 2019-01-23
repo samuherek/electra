@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled } from '@electra/ui';
+import { Link } from '@reach/router';
 
 const WrapStyled = styled.header`
   grid-column-start: 1;
@@ -10,6 +11,8 @@ const WrapStyled = styled.header`
 const Topbar = () => (
   <WrapStyled>
     <span>span</span>
+    <Link to="/">Home</Link>
+    <Link to="/websites">Websites</Link>
   </WrapStyled>
 );
 export default Topbar;

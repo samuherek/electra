@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 
-import db from './db';
+// import db from './db';
 
 let win: BrowserWindow | null;
 
@@ -20,15 +20,15 @@ async function createWindow() {
 
   win.webContents.openDevTools();
 
-  const createTag = async (label: string) => {
-    const tag = await db.tags.insert({ label });
-    return tag;
-  };
+  // const createTag = async (label: string) => {
+  //   const tag = await db.tags.insert({ label });
+  //   return tag;
+  // };
 
-  const getTags = async () => {
-    const proxies = await db.tags.find({});
-    return { proxies };
-  };
+  // const getTags = async () => {
+  //   const proxies = await db.tags.find({});
+  //   return { proxies };
+  // };
 
   // await createTag('something');
 
