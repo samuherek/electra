@@ -4,11 +4,11 @@ import { ApolloProvider } from 'react-apollo';
 import { GlobalStyles, themeDark, ThemeProvider } from '@boxlife/ui';
 
 import Dashboard from './pages/Dashboard';
-import DashLayout from './layout/DashLayout';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import AppProvider from './providers/AppProvider';
 import client from './apollo';
+import PageDashboard from './components/PageDashboard';
 
 class App extends Component {
   render() {
@@ -21,9 +21,9 @@ class App extends Component {
               <Router>
                 <Login path="/login" />
                 <SignUp path="/sign-up" />
-                <DashLayout path="/">
+                <PageDashboard path="/">
                   <Dashboard path="/" />
-                </DashLayout>
+                </PageDashboard>
               </Router>
             </>
           </ThemeProvider>
