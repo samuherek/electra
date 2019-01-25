@@ -5,9 +5,11 @@ import {
   BaseEntity,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
 import { User } from './User';
+import { Page } from './Page';
 
 @Entity()
 @ObjectType()
@@ -20,16 +22,16 @@ export class Block extends BaseEntity {
   @Column({ default: true })
   alive: boolean;
 
+  @Field()
+  @Column({ default: false })
+  isPageRoot: boolean;
+
   @Field({ nullable: true })
   @Column({ nullable: true })
   title: string;
 
-  // TODO: one to many of its own
-  @Column({ type: 'uuid', array: true })
-  contentIds?: string[];
-
-  @Field(() => [Block])
-  content: Promise<Block[]>;
+  @Field()
+  content: string;
 
   @Column('uuid')
   createdById: string;
@@ -45,10 +47,9 @@ export class Block extends BaseEntity {
   @UpdateDateColumn({ type: 'timestamp with time zone' })
   updatedAt: Date;
 
-  // TODO: One to one of its own
-  @Column('uuid')
-  parentId: string;
-
   @Column({ default: 'text' })
   type: string;
+
+  @ManyToOne(() => Page, page => page.content)
+  page: Promise<Page[]>;
 }

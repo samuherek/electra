@@ -6,9 +6,13 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  OneToOne,
+  JoinColumn,
+  OneToMany,
 } from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
 import { Space } from './Space';
+import { Block } from './Block';
 
 @Entity()
 @ObjectType()
@@ -17,13 +21,24 @@ export class Page extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   readonly id: string;
 
-  @Field(() => String, { nullable: true })
-  @Column({ type: 'text', nullable: true })
-  root: string;
+  // @Column({ type: 'uuid', nullable: true })
+  // rootId: string;
+
+  @Field(() => Block, { nullable: true })
+  @OneToOne(() => Block, { nullable: true })
+  @JoinColumn()
+  root: Promise<Block>;
 
   @Field(() => String, { nullable: true })
   @Column({ nullable: true })
   tables: string;
+
+  @Column({ type: 'uuid', array: true, nullable: true })
+  contentIds: string[];
+
+  @Field(() => [Block], { nullable: true })
+  @OneToMany(() => Block, block => block.page)
+  content: Promise<Block[]>;
 
   @Field()
   @CreateDateColumn({ type: 'timestamp with time zone' })
