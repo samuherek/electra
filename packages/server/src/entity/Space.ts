@@ -20,7 +20,7 @@ export class Space extends BaseEntity {
   readonly id: string;
 
   @Field()
-  @Column({ type: 'text', unique: false })
+  @Column({ type: 'text' })
   name: string;
 
   @Field()
@@ -30,6 +30,9 @@ export class Space extends BaseEntity {
   @Field()
   @UpdateDateColumn({ type: 'timestamp with time zone' })
   updatedAt: Date;
+
+  @Column('uuid')
+  userId: string;
 
   @ManyToOne(() => User, user => user.spaces)
   user: Promise<User>;

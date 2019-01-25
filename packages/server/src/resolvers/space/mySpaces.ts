@@ -1,13 +1,13 @@
 import { Resolver, Ctx, Query } from 'type-graphql';
 
 import { IMyContext } from '../../types/Context';
-import { User } from '../../entity/User';
+import { Space } from '../../entity/Space';
 
 @Resolver()
 export class MySpacesResolver {
-  @Query(() => User, { nullable: true })
-  async me(@Ctx() ctx: IMyContext) {
+  @Query(() => [Space])
+  async mySpaces(@Ctx() ctx: IMyContext) {
     const { userId } = ctx.req.session!;
-    return userId ? User.findOne(userId) : null;
+    return Space.find({ user: userId });
   }
 }
