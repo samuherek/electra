@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router } from '@reach/router';
-import { GlobalStyles, theme, ThemeProvider } from '@electra/ui';
+import { GlobalStyles, theme, ThemeProvider } from '@boxlife/ui';
 
 import Dashboard from './pages/Dashboard';
 import DashLayout from './layout/DashLayout';

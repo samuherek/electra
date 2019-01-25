@@ -1,6 +1,6 @@
 export default {
-  title: 'electra',
-  description: 'electra styles',
+  title: 'boxlife',
+  description: 'boxlife styles',
   themeConfig: {
     colors: {
       primary: 'black',

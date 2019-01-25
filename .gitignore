@@ -9,5 +9,5 @@ dump.rdb
 **/.env
 notes.md
 
-# Electra Project specific
+# boxlife Project specific
 packages/main/data

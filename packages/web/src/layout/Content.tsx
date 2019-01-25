@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@electra/ui';
+import { styled } from '@boxlife/ui';
 
 const WrapStyled = styled.main``;
 

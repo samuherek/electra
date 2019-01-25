@@ -1,4 +1,4 @@
 {
   "files": [],
-  "references": [{ "path": "main" }, { "path": "ui" }, { "path": "renderer" }]
+  "references": [{ "path": "server" }, { "path": "ui" }, { "path": "web" }]
 }
