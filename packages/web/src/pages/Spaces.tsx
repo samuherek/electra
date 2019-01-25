@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import withLogin from '../containers/withLogin';
 
-const Dashboard = ({  }: any) => (
+const Spaces = ({  }: any) => (
   <div>
-    <div>Dashboard</div>
+    <div>Spaces</div>
   </div>
 );
 
-export default withLogin(Dashboard);
+export default withLogin(Spaces);

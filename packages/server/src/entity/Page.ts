@@ -29,9 +29,9 @@ export class Page extends BaseEntity {
   @JoinColumn()
   root: Promise<Block>;
 
-  @Field(() => String, { nullable: true })
-  @Column({ nullable: true })
-  tables: string;
+  // @Field(() => String, { nullable: true })
+  // @Column({ nullable: true })
+  // tables: string;
 
   @Column({ type: 'uuid', array: true, nullable: true })
   contentIds: string[];

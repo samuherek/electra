@@ -3,12 +3,13 @@ import { Router } from '@reach/router';
 import { ApolloProvider } from 'react-apollo';
 import { GlobalStyles, themeDark, ThemeProvider } from '@boxlife/ui';
 
-import Dashboard from './pages/Dashboard';
+import Spaces from './pages/Spaces';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import AppProvider from './providers/AppProvider';
 import client from './apollo';
 import PageDashboard from './components/PageDashboard';
+import Page from './pages/Page';
 
 class App extends Component {
   render() {
@@ -22,7 +23,8 @@ class App extends Component {
                 <Login path="/login" />
                 <SignUp path="/sign-up" />
                 <PageDashboard path="/">
-                  <Dashboard path="/" />
+                  <Spaces path="/" />
+                  <Page path="/:pageId" />
                 </PageDashboard>
               </Router>
             </>
