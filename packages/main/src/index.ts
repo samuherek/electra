@@ -1,4 +1,6 @@
 import { app, BrowserWindow } from 'electron';
+// @ts-ignore
+import preload from './preload';
 
 // import db from './db';
 

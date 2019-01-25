@@ -6,9 +6,8 @@
   "main": "./src/index.ts",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
     "build": "NODE_ENV=production electron-builder",
+    "watch": "tsc -w",
     "electron": "NODE_ENV=development electron ./build/index.js",
     "start": "nodemon --watch ./build/**/* --exec 'yarn electron'"
   },

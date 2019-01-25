@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link } from '@reach/router';
+// import electron from 'electron';
+// const electron = require('electron');
 
 class Websites extends React.PureComponent<any, any> {
   state = {
@@ -18,6 +20,9 @@ class Websites extends React.PureComponent<any, any> {
   };
 
   render() {
+    // @ts-ignore
+    console.log(electron);
+
     const { websites } = this.state;
     return (
       <div>
@@ -37,6 +42,9 @@ class Websites extends React.PureComponent<any, any> {
             <span>{w.url}</span>
           </div>
         ))}
+        <div>
+          <button onClick={() => {}}>Create new website</button>
+        </div>
       </div>
     );
   }
