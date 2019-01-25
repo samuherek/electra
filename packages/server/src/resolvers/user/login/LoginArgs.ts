@@ -1,5 +1,5 @@
 import { ArgsType, Field } from 'type-graphql';
-import { IsEmail, Min } from 'class-validator';
+import { IsEmail } from 'class-validator';
 
 @ArgsType()
 export default class LoginArgs {
@@ -8,6 +8,5 @@ export default class LoginArgs {
   email: string;
 
   @Field()
-  @Min(3)
   password: string;
 }

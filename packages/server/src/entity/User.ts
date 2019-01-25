@@ -5,9 +5,11 @@ import {
   BaseEntity,
   BeforeInsert,
   CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
+import { Space } from './Space';
 
 @Entity()
 @ObjectType()
@@ -20,6 +22,7 @@ export class User extends BaseEntity {
   @Column({ type: 'text', unique: true })
   email: string;
 
+  // TODO: remove password and use email auth.
   @Column()
   password: string;
 
@@ -28,15 +31,30 @@ export class User extends BaseEntity {
 
   @Field(() => String, { nullable: true })
   @Column({ nullable: true })
-  displayName?: string;
+  firstName?: string;
 
   @Field(() => String, { nullable: true })
   @Column({ nullable: true })
-  photoUrl?: string;
+  lastName?: string;
+
+  @Field(() => String, { nullable: true })
+  fullName?: string;
+
+  @Field(() => String, { nullable: true })
+  @Column({ nullable: true })
+  profilePhoto?: string;
 
   @Field()
   @CreateDateColumn({ type: 'timestamp with time zone' })
   createdAt: Date;
+
+  @Field()
+  @Column({ default: false })
+  onboardingCompleted: boolean;
+
+  @Field(() => [Space])
+  @OneToMany(() => Space, space => space.user)
+  spaces: Promise<Space[]>;
 
   @BeforeInsert()
   async hashPasswordBeforeInsert() {

@@ -1,4 +1,4 @@
-import { Resolver, Mutation, Arg, Ctx, Args } from 'type-graphql';
+import { Resolver, Mutation, Ctx, Args } from 'type-graphql';
 
 import { User } from '../../entity/User';
 import { userSessionIdPrefix } from '../../constants';
