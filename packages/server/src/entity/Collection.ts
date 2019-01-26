@@ -35,9 +35,9 @@ export class Collection extends BaseEntity {
   @OneToMany(() => Page, page => page.collection)
   pages: Promise<Page[]>;
 
-  @Column('uuid')
+  @Column('uuid', { nullable: true })
   spaceId: string;
 
-  @ManyToOne(() => Space, space => space.collections)
+  @ManyToOne(() => Space, space => space.collections, { nullable: true })
   space: Promise<Space>;
 }

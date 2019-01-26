@@ -50,13 +50,13 @@ export class Page extends BaseEntity {
   @UpdateDateColumn({ type: 'timestamp with time zone' })
   updatedAt: Date;
 
-  @Column('uuid')
+  @Column('uuid', { nullable: true })
   spaceId: string;
 
-  @ManyToOne(() => Space, space => space.pages)
+  @ManyToOne(() => Space, space => space.pages, { nullable: true })
   space: Promise<Space>;
 
-  @Column('uuid')
+  @Column('uuid', { nullable: true })
   collectionId: string;
 
   @ManyToOne(() => Collection, collection => collection.pages)
