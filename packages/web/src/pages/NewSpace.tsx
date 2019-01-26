@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled, Fieldset, TextField, Button, Text } from '@boxlife/ui';
-import { Link } from '@reach/router';
+import { Link, RouteComponentProps } from '@reach/router';
 import { Formik } from 'formik';
+import CreateSpaceMutationContainer from '../graphql/CreateSpaceMutation';
 
 interface IValues {
   name: string;
@@ -31,8 +32,10 @@ const FormStyled = styled.form`
   width: 100%;
 `;
 
-export default class NewSpace extends React.PureComponent<any> {
+export default class NewSpace extends React.PureComponent<RouteComponentProps> {
   render() {
+    const { navigate } = this.props;
+
     return (
       <WrapStyled>
         <CloseBtnStyled to="/">Close</CloseBtnStyled>
@@ -51,30 +54,38 @@ export default class NewSpace extends React.PureComponent<any> {
             You can always changed things up later.
           </Text>
         </div>
-        <Formik<IValues>
-          initialValues={{ name: '' }}
-          onSubmit={async ({ name }) => {
-            console.log(name);
-          }}
-        >
-          {({ values, handleChange, handleSubmit, isSubmitting }) => (
-            <FormStyled onSubmit={handleSubmit}>
-              <Fieldset disabled={isSubmitting}>
-                <TextField
-                  label="Name"
-                  name="name"
-                  id="name"
-                  value={values.name}
-                  onChange={handleChange}
-                />
-                <Text component="p" style={{ fontSize: 12, opacity: 0.5 }}>
-                  The name of your space/interest. Keep it simple.
-                </Text>
-              </Fieldset>
-              <Button type="submit">Create Space</Button>
-            </FormStyled>
+        <CreateSpaceMutationContainer>
+          {({ createSpaceMutation }) => (
+            <Formik<IValues>
+              initialValues={{ name: '' }}
+              onSubmit={async ({ name }) => {
+                const res = await createSpaceMutation({ variables: { name } });
+                if (res && res.data) {
+                  const { createSpace } = res.data;
+                  navigate!(`/${createSpace.id}`);
+                }
+              }}
+            >
+              {({ values, handleChange, handleSubmit, isSubmitting }) => (
+                <FormStyled onSubmit={handleSubmit}>
+                  <Fieldset disabled={isSubmitting}>
+                    <TextField
+                      label="Name"
+                      name="name"
+                      id="name"
+                      value={values.name}
+                      onChange={handleChange}
+                    />
+                    <Text component="p" style={{ fontSize: 12, opacity: 0.5 }}>
+                      The name of your space/interest. Keep it simple.
+                    </Text>
+                  </Fieldset>
+                  <Button type="submit">Create Space</Button>
+                </FormStyled>
+              )}
+            </Formik>
           )}
-        </Formik>
+        </CreateSpaceMutationContainer>
       </WrapStyled>
     );
   }
