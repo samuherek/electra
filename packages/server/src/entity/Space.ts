@@ -11,6 +11,7 @@ import {
 import { ObjectType, Field, ID } from 'type-graphql';
 import { User } from './User';
 import { Page } from './Page';
+import { Collection } from './Collection';
 
 @Entity()
 @ObjectType()
@@ -40,4 +41,8 @@ export class Space extends BaseEntity {
   @Field(() => [Page])
   @OneToMany(() => Page, page => page.space)
   pages: Promise<Page>;
+
+  @Field(() => [Collection])
+  @OneToMany(() => Collection, collection => collection.space)
+  collections: Promise<Collection[]>;
 }

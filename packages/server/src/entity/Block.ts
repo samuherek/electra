@@ -8,7 +8,6 @@ import {
   ManyToOne,
 } from 'typeorm';
 import { ObjectType, Field, ID } from 'type-graphql';
-import { User } from './User';
 import { Page } from './Page';
 
 @Entity()
@@ -33,12 +32,6 @@ export class Block extends BaseEntity {
   @Field()
   content: string;
 
-  @Column('uuid')
-  createdById: string;
-
-  @Field(() => User)
-  createdBy: Promise<User>;
-
   @Field()
   @CreateDateColumn({ type: 'timestamp with time zone' })
   createdAt: Date;
@@ -51,5 +44,5 @@ export class Block extends BaseEntity {
   type: string;
 
   @ManyToOne(() => Page, page => page.content)
-  page: Promise<Page[]>;
+  page: Promise<Page>;
 }
