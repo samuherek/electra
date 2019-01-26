@@ -13,6 +13,7 @@ export interface IBaseButtonProps {
   type?: string;
   withNewTab?: boolean;
   className?: string;
+  style?: object;
 }
 
 export interface IButtonHTMLProps {

@@ -34,8 +34,6 @@ export interface Page {
 
   root?: Maybe<Block>;
 
-  tables?: Maybe<string>;
-
   content?: Maybe<Block[]>;
 
   createdAt: DateTime;

@@ -2,32 +2,30 @@
 import * as React from 'react';
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost';
-import { User } from 'src/types';
+import { Space } from 'src/types';
 
 interface IQueryData {
-  me: User;
+  mySpaces: Space[];
 }
 
 interface IRenderProps {
-  me: User | null;
+  mySpaces: Space[];
 }
 
 interface IContainerProps {
-  children: (renderProps: IRenderProps) => JSX.Element;
+  children: (renderProps: IRenderProps) => React.ReactNode;
 }
 
-export const ME_QUERY = gql`
+export const MY_SPACES_QUERY = gql`
   query me {
-    me {
+    mySpaces {
       id
-      email
-      fullName
     }
   }
 `;
 
-const MeQueryContainer = ({ children }: IContainerProps) => (
-  <Query<IQueryData> query={ME_QUERY}>
+const MySpacesQueryContainer = ({ children }: IContainerProps) => (
+  <Query<IQueryData> query={MY_SPACES_QUERY}>
     {({ loading, error, data }) => {
       if (loading) {
         return 'loading';
@@ -38,10 +36,10 @@ const MeQueryContainer = ({ children }: IContainerProps) => (
       }
 
       return children({
-        me: data ? data.me : null,
+        mySpaces: data ? data.mySpaces : [],
       });
     }}
   </Query>
 );
 
-export default MeQueryContainer;
+export default MySpacesQueryContainer;
