@@ -8,12 +8,12 @@ interface IProps extends RouteComponentProps {
 }
 
 interface IWrapProps {
-  isRoot: boolean;
+  withGrid: boolean;
 }
 
 const WrapStyled = styled.div<IWrapProps>`
-  ${({ isRoot }) => {
-    if (!isRoot) {
+  ${({ withGrid }) => {
+    if (withGrid) {
       return css`
         display: grid;
         grid-template-columns: 240px 1fr;
@@ -25,11 +25,12 @@ const WrapStyled = styled.div<IWrapProps>`
 `;
 
 const PageDashboard = ({ children, location }: IProps) => {
+  const isEmpty = !!location && location.pathname === '/new-space';
   const isRoot = !!location && location.pathname === '/';
 
   return (
-    <WrapStyled isRoot={isRoot}>
-      {!isRoot ? <Sidebar /> : null}
+    <WrapStyled withGrid={!isRoot && !isEmpty}>
+      {!isRoot && !isEmpty ? <Sidebar /> : null}
       {children}
     </WrapStyled>
   );

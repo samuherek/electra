@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, styled, ButtonBase } from '@boxlife/ui';
+import { Text, styled } from '@boxlife/ui';
 
 import withLogin from '../containers/withLogin';
 import DropdownUser from '../components/DropdownUser';
 import DropdownStyle from '../components/DropdownStyle/idnex';
 import MySpacesQueryContainer from '../graphql/MySpacesQuery';
+import { Link } from '@reach/router';
 
 const TopStyed = styled.header`
   height: 45px;
@@ -24,13 +25,14 @@ const ToolsStyled = styled.div`
   padding-right: 12px;
 `;
 
-const AddBtnStyled = styled(ButtonBase)`
+const AddBtnStyled = styled(Link)`
   position: relative;
   top: 5px;
   margin-left: 15px;
   padding: 5px 10px;
-  height: 31px;
+  height: 18px;
   color: rgba(55, 53, 47, 0.3);
+  text-decoration: none;
 `;
 
 const Spaces = ({  }: any) => (
@@ -52,7 +54,7 @@ const Spaces = ({  }: any) => (
         <Text component="h2" style={{ fontSize: '2.75rem' }}>
           Spaces
         </Text>
-        <AddBtnStyled>+ New Space</AddBtnStyled>
+        <AddBtnStyled to="/new-space">+ New Space</AddBtnStyled>
       </div>
       <MySpacesQueryContainer>
         {({ mySpaces }) => (

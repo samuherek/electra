@@ -10,6 +10,7 @@ import AppProvider from './providers/AppProvider';
 import client from './apollo';
 import PageDashboard from './components/PageDashboard';
 import Page from './pages/Page';
+import NewSpace from './pages/NewSpace';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
                 <SignUp path="/sign-up" />
                 <PageDashboard path="/">
                   <Spaces path="/" />
+                  <NewSpace path="/new-space" />
                   <Page path="/:pageId" />
                 </PageDashboard>
               </Router>
