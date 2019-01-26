@@ -8,6 +8,6 @@ export class MySpacesResolver {
   @Query(() => [Space])
   async mySpaces(@Ctx() ctx: IMyContext) {
     const { userId } = ctx.req.session!;
-    return Space.find({ user: userId });
+    return Space.find({ where: { userId } });
   }
 }
