@@ -31,7 +31,8 @@ const InputBaseStyled = styled.input`
   color: currentColor;
   border: 0;
   margin: 0;
-  padding: 6px 0 7px;
+  line-height: 26px;
+  /* padding: 6px 0 7px; */
   display: block;
   min-width: 0;
   box-sizing: content-box;
@@ -76,7 +77,7 @@ class InputBase extends React.PureComponent<IInputBaseProps> {
     } = this.props;
 
     let inputComponent = component;
-    let textareaProps: { [key: string]: string | number } = {};
+    const textareaProps: { [key: string]: string | number } = {};
 
     if (rows) {
       inputComponent = 'textarea';

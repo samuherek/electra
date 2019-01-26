@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router } from '@reach/router';
 import { ApolloProvider } from 'react-apollo';
-import { GlobalStyles, themeDark, ThemeProvider } from '@boxlife/ui';
+import { GlobalStyles, ThemeProvider, themeLight } from '@boxlife/ui';
 
 import Spaces from './pages/Spaces';
 import Login from './pages/Login';
@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <AppProvider client={client}>
-          <ThemeProvider theme={themeDark}>
+          <ThemeProvider theme={themeLight}>
             <>
               <GlobalStyles />
               <Router>

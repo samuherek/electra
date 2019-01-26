@@ -16,22 +16,16 @@ interface IFieldLabelProps extends ILabelStyled {
 
 // TODO: Fix the any type
 const LabelStyled = styled.label<ILabelStyled>`
-  top: 0;
-  left: 0;
-  position: absolute;
   line-height: 1;
+  display: block;
   padding: 0;
   font: inherit;
-  font-size: 1rem;
-  transform-origin: top left;
-  color: rgba(0, 0, 0, 0.54);
-  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
-    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-
-  transform: ${({ shrink }) => {
-    if (shrink) return 'translate(0, 1.5px) scale(0.75)';
-    return 'translate(0, 24px) scale(1)';
-  }};
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(55, 53, 47, 0.6);
+  font-weight: 500;
 `;
 
 const FieldLabel = ({

@@ -21,8 +21,6 @@ interface State {
 }
 
 const ControlWrapStyled = styled.div<IControlWrapStyled>`
-  display: inline-flex;
-  position: relative;
   width: ${({ fullWidth }) => (fullWidth ? '100%' : 'auto')};
 `;
 

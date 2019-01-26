@@ -20,6 +20,13 @@ const WrapStyled = styled('div')<IWrapStyled>`
   position: relative;
   width: 100%;
   margin-top: 16px;
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 1px inset;
+  background: white;
+  padding: 4px 10px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border-radius: 3px;
+  font-size: 15px;
 
   ${({ margin }) =>
     margin &&
