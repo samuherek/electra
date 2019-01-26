@@ -9,6 +9,7 @@ import {
 import { ObjectType, Field, ID } from 'type-graphql';
 import { Space } from './Space';
 import { Page } from './Page';
+// import { PageTreeItem } from '../objectTypes/PageTree';
 
 interface IPageTree {
   id: string;
@@ -22,16 +23,14 @@ export class Collection extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   readonly id: string;
 
-  @Column({ type: 'jsonb', nullable: true })
-  pageTree: IPageTree[];
-
   @Field()
   @Column()
   name: string;
 
-  // @Field(() => [Page])
-  // pageTree: Promise<Page[]>;
+  @Column({ type: 'jsonb', nullable: true })
+  pageTree: IPageTree[];
 
+  @Field(() => [Page])
   @OneToMany(() => Page, page => page.collection)
   pages: Promise<Page[]>;
 
@@ -40,4 +39,7 @@ export class Collection extends BaseEntity {
 
   @ManyToOne(() => Space, space => space.collections, { nullable: true })
   space: Promise<Space>;
+
+  // @Field(() => [PageTreeItem])
+  // pageTree(@Root() {pageOrder}: Collection)
 }

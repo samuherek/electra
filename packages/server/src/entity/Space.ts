@@ -8,7 +8,7 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
-import { ObjectType, Field, ID } from 'type-graphql';
+import { ObjectType, Field, ID, Root } from 'type-graphql';
 import { User } from './User';
 import { Page } from './Page';
 import { Collection } from './Collection';
@@ -38,11 +38,13 @@ export class Space extends BaseEntity {
   @ManyToOne(() => User, user => user.spaces)
   user: Promise<User>;
 
-  @Field(() => [Page])
+  // @Field(() => [Page])
   @OneToMany(() => Page, page => page.space)
   pages: Promise<Page>;
 
   @Field(() => [Collection])
   @OneToMany(() => Collection, collection => collection.space)
-  collections: Promise<Collection[]>;
+  collections(@Root() parent: Space): Promise<Collection[]> {
+    return Collection.find({ where: { spaceId: parent.id } });
+  }
 }

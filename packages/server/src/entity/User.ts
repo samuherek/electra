@@ -7,9 +7,13 @@ import {
   CreateDateColumn,
   OneToMany,
 } from 'typeorm';
-import { ObjectType, Field, ID } from 'type-graphql';
+import { ObjectType, Field, ID, Root } from 'type-graphql';
 import * as bcrypt from 'bcrypt';
 import { Space } from './Space';
+
+const nullToString = (value?: string): string => {
+  return !value ? '' : value;
+};
 
 @Entity()
 @ObjectType()
@@ -38,19 +42,12 @@ export class User extends BaseEntity {
   lastName?: string;
 
   @Field(() => String, { nullable: true })
-  fullName?: string;
-
-  @Field(() => String, { nullable: true })
   @Column({ nullable: true })
   profilePhoto?: string;
 
   @Field()
   @CreateDateColumn({ type: 'timestamp with time zone' })
   createdAt: Date;
-
-  @Field()
-  @Column({ default: false })
-  onboardingCompleted: boolean;
 
   @Field(() => [Space])
   @OneToMany(() => Space, space => space.user)
@@ -59,5 +56,15 @@ export class User extends BaseEntity {
   @BeforeInsert()
   async hashPasswordBeforeInsert() {
     this.password = await bcrypt.hash(this.password, 10);
+  }
+
+  @Field(() => String, { nullable: true })
+  fullName(@Root() { firstName, lastName }: User): string | null {
+    const firstString = nullToString(firstName);
+    const lastString = nullToString(lastName);
+
+    return firstName !== null && lastName !== null
+      ? firstString + lastString
+      : null;
   }
 }
