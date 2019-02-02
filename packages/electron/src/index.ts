@@ -1,10 +1,8 @@
-import { app, BrowserWindow } from 'electron';
-// @ts-ignore
-import preload from './preload';
-
-// import db from './db';
+import { app, BrowserWindow, Tray, Menu } from 'electron';
+import path from 'path';
 
 let win: BrowserWindow | null;
+let tray: Tray | null;
 
 async function createWindow() {
   win = new BrowserWindow({
@@ -12,30 +10,25 @@ async function createWindow() {
     transparent: false,
     webPreferences: {
       contextIsolation: true,
-      // <--- (1) Additional preferences
       nodeIntegration: false,
-      preload: __dirname + '/preload.js', // <--- (2) Preload script
+      preload: __dirname + '/preload.js',
     },
     width: 800,
   });
-  win.loadURL('http://localhost:3000'); // <--- (3) Loading react
 
-  win.webContents.openDevTools();
+  tray = new Tray(path.join(__dirname, 'assets', 'btcTemplate.png'));
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' },
+  ]);
+  tray.setToolTip('This is my application.');
+  tray.setContextMenu(contextMenu);
 
-  // const createTag = async (label: string) => {
-  //   const tag = await db.tags.insert({ label });
-  //   return tag;
-  // };
+  win.loadURL('http://localhost:3000');
 
-  // const getTags = async () => {
-  //   const proxies = await db.tags.find({});
-  //   return { proxies };
-  // };
-
-  // await createTag('something');
-
-  // const res = await getTags();
-  // console.log(res);
+  // win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null;
