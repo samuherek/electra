@@ -1,13 +1,14 @@
 .vscode/
-node_modules/
-build/
-tmp/
-temp/
-dist
-.docz
+**/node_modules/
+**/build/
+**/tmp/
+**/temp/
+**/dist
+**/.docz
 dump.rdb
 **/.env
 notes.md
+.fusebox
 
 # boxlife Project specific
 packages/main/data
