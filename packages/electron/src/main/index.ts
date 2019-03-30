@@ -1,4 +1,4 @@
-import { ipcMain, app, BrowserWindow } from 'electron';
+import { ipcMain, app, BrowserWindow, BrowserView } from 'electron';
 import { resolve, join } from 'path';
 import { platform, homedir } from 'os';
 // import { AppWindow } from './app-window';
@@ -9,11 +9,13 @@ ipcMain.setMaxListeners(0);
 app.setPath('userData', resolve(homedir(), '.multrin'));
 
 let win: BrowserWindow | null;
+let view: BrowserView | null;
 // export let appWindow: AppWindow;
 
 async function createWindow() {
+  view = new BrowserView();
   win = new BrowserWindow({
-    frame: process.env.ENV === 'dev' || platform() === 'darwin',
+    frame: false,
     minWidth: 400,
     minHeight: 450,
     width: 900,
@@ -26,6 +28,10 @@ async function createWindow() {
     },
     icon: resolve(app.getAppPath(), 'static/app-icons/icon.png'),
   });
+  win.setBrowserView(view);
+  view.setBounds({ x: 0, y: 50, width: 900, height: 650 });
+  view.setAutoResize({ width: true, height: true });
+  view.webContents.loadURL('http://localhost:3000');
 
   // tray = new Tray(path.join(__dirname, 'assets', 'btcTemplate.png'));
   // const contextMenu = Menu.buildFromTemplate([
@@ -39,7 +45,7 @@ async function createWindow() {
 
   if (process.env.ENV === 'dev') {
     win.webContents.openDevTools({ mode: 'detach' });
-    win.loadURL('http://localhost:4444/app.html');
+    // win.loadURL('http://localhost:4444/app.html');
   } else {
     win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
   }

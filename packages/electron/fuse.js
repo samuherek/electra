@@ -5,7 +5,7 @@ const {
   EnvPlugin,
   CopyPlugin,
   JSONPlugin,
-  StyledComponentsPlugin,
+  // StyledComponentsPlugin,
 } = require('fuse-box');
 const { spawn } = require('child_process');
 
@@ -84,7 +84,7 @@ const renderer = (name, port) => {
   cfg.plugins.push(getWebIndexPlugin(name));
   cfg.plugins.push(JSONPlugin());
   cfg.plugins.push(getCopyPlugin());
-  cfg.plugins.push(StyledComponentsPlugin());
+  // cfg.plugins.push(StyledComponentsPlugin());
 
   const fuse = FuseBox.init(cfg);
 

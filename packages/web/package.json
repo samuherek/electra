@@ -20,7 +20,8 @@
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "gen": "gql-gen",
-    "svgr": "npx @svgr/cli --config-file .svgrrc.js --ext tsx icons --out-dir src/components/icons"
+    "svgr": "npx @svgr/cli --config-file .svgrrc.js --ext tsx icons --out-dir src/components/icons",
+    "clean": "rimraf node_modules"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,6 +44,7 @@
     "graphql-code-generator": "0.16.0",
     "graphql-codegen-typescript-common": "0.16.0",
     "graphql-codegen-typescript-server": "0.16.0",
+    "rimraf": "2.6.3",
     "typescript": "3.2.4"
   }
 }

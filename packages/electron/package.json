@@ -44,8 +44,14 @@
     "fuse-box": "^3.7.1",
     "prettier": "^1.16.4",
     "rimraf": "^2.6.3",
+    "styled-components": "^4.2.0",
     "terser": "^3.17.0",
     "typescript": "^3.3.4000",
     "typescript-plugin-styled-components": "^1.4.2"
+  },
+  "workspaces": {
+    "noHoist": [
+      "typescript-plugin-styled-components"
+    ]
   }
 }
