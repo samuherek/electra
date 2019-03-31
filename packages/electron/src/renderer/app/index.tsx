@@ -1,12 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import { remote } from 'electron';
-
-import { ipcRenderer } from 'electron';
 import GlobalStyles from '../styles/global';
-
-ipcRenderer.setMaxListeners(0);
 
 const WrapStyled = styled.div``;
 

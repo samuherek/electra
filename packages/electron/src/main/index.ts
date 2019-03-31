@@ -31,7 +31,7 @@ async function createWindow() {
 
   win.setBrowserView(view);
 
-  view.setBounds({ x: 0, y: 100, width: 900, height: 700 });
+  view.setBounds({ x: 0, y: 0, width: 900, height: 700 });
 
   view.setAutoResize({ width: true, height: true });
   view.webContents.loadURL('http://localhost:3000');

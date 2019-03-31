@@ -26,11 +26,11 @@ const WrapStyled = styled.div<IWrapProps>`
 
 const PageDashboard = ({ children, location }: IProps) => {
   const isEmpty = !!location && location.pathname === '/new-space';
-  const isRoot = !!location && location.pathname === '/';
+  // const isRoot = !!location && location.pathname === '/';
 
   return (
-    <WrapStyled withGrid={!isRoot && !isEmpty}>
-      {!isRoot && !isEmpty ? <Sidebar /> : null}
+    <WrapStyled withGrid={!isEmpty}>
+      {!isEmpty ? <Sidebar /> : null}
       {children}
     </WrapStyled>
   );
