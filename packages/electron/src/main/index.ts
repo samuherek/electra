@@ -21,15 +21,18 @@ async function createWindow() {
     width: 900,
     height: 700,
     show: true,
-    titleBarStyle: 'hiddenInset',
+    titleBarStyle: 'hidden',
     webPreferences: {
       plugins: true,
       nodeIntegration: true,
     },
     icon: resolve(app.getAppPath(), 'static/app-icons/icon.png'),
   });
+
   win.setBrowserView(view);
-  view.setBounds({ x: 0, y: 50, width: 900, height: 650 });
+
+  view.setBounds({ x: 0, y: 100, width: 900, height: 700 });
+
   view.setAutoResize({ width: true, height: true });
   view.webContents.loadURL('http://localhost:3000');
 
@@ -44,8 +47,9 @@ async function createWindow() {
   // tray.setContextMenu(contextMenu);
 
   if (process.env.ENV === 'dev') {
-    win.webContents.openDevTools({ mode: 'detach' });
-    // win.loadURL('http://localhost:4444/app.html');
+    view.webContents.openDevTools({ mode: 'detach' });
+    // win.webContents.openDevTools({ mode: 'detach' });
+    win.loadURL('http://localhost:4444/app.html');
   } else {
     win.loadURL(join('file://', app.getAppPath(), 'build/app.html'));
   }
