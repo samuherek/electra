@@ -42,7 +42,7 @@
     "electron": "4.1.1",
     "electron-builder": "20.39.0",
     "fuse-box": "3.7.1",
-    "prettier": "1.16.4",
+    "prettier": "1.19.1",
     "rimraf": "2.6.3",
     "styled-components": "4.2.0",
     "terser": "3.17.0",
