@@ -33,7 +33,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@svgr/cli": "4.1.0",
+    "@svgr/cli": "4.3.3",
     "@types/jest": "23.3.12",
     "@types/lodash.get": "4.4.4",
     "@types/node": "10.12.21",
