@@ -1883,13 +1883,14 @@
   resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.1.tgz#9794c69c8385d0192acc471a540d1f8e0d16218a"
   integrity sha512-FhlMa34NHp9K5MY1Uz8yb+ZvuX0pnvn3jScRSNAb75KHGB8d3rEU6hqMs3Z2vjuytcMfRg6c5CHMc3wtYyD2/A==
 
-"@types/connect-redis@0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@types/connect-redis/-/connect-redis-0.0.8.tgz#5dfec54b1027cb2ec33a78e5de319fc9227528d2"
-  integrity sha512-zqMHgRiBxSqj3vpz/S7kR4GhJHo5atag/s7i/GFvZte7SsOxkU8OWK/BcysWS4M7XL7koe4+u4lGjvx7Yir9EQ==
+"@types/connect-redis@0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@types/connect-redis/-/connect-redis-0.0.16.tgz#fd98a26ffbe6ac3037baa4aecc940951b9f78cdc"
+  integrity sha512-ToZRmwoeqRhzGIqMO9k8Hs1B9pFSGYCjHvMpPlgo+kQ4M7xaPwi2/5HjikJ0MOfPDFcAe9Qwl1SaULYCNE6jYg==
   dependencies:
     "@types/express" "*"
     "@types/express-session" "*"
+    "@types/ioredis" "*"
     "@types/redis" "*"
 
 "@types/connect@*":
@@ -1976,6 +1977,13 @@
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.2.tgz#0e670ea254d559241b6eeb3894f8754991e73220"
   integrity sha512-ui3WwXmjTaY73fOQ3/m3nnajU/Orhi6cEu5rzX+BrAAJxa3eITXZ5ch9suPqtM03OWhAHhPSyBGCN4UKoxO20Q==
+
+"@types/ioredis@*":
+  version "4.17.10"
+  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.17.10.tgz#63a99d9655b4f41682e627812ac1cbb2c0668ffa"
+  integrity sha512-1K6BE5oAuu+j8g0mMGDxFvEpbveI3w6aGtcaG3MgszofIGb5ms5xx7m+pgKiXb80c9kuwIaJMiNEeVOWZV3UiQ==
+  dependencies:
+    "@types/node" "*"
 
 "@types/ioredis@4.0.5":
   version "4.0.5"
