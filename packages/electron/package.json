@@ -39,7 +39,7 @@
     "@types/slate-react": "0.21.2",
     "@types/styled-components": "4.1.12",
     "cross-env": "5.2.0",
-    "electron": "4.1.1",
+    "electron": "9.4.0",
     "electron-builder": "20.39.0",
     "fuse-box": "3.7.1",
     "prettier": "1.16.4",
